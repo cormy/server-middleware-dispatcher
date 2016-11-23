@@ -1,9 +1,9 @@
 {
-    "name": "cormy/dispatcher",
+    "name": "cormy/server-middleware-dispatcher",
     "type": "library",
     "description": "Cormy PSR-7 server middleware dispatcher",
     "license": "MIT",
-    "keywords": ["middleware", "dispatcher", "psr", "psr-7", "http", "http-message", "request", "response", "cormy"],
+    "keywords": ["server", "middleware", "dispatcher", "psr", "psr-7", "http", "http-message", "request", "response", "cormy"],
     "authors": [
         {
             "name": "Michael Mayer",

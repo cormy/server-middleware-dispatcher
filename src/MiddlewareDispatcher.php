@@ -9,7 +9,7 @@ use Psr\Http\Message\ServerRequestInterface;
 /**
  * Cormy PSR-7 server middleware dispatcher.
  */
-class Dispatcher implements RequestHandlerInterface
+class MiddlewareDispatcher implements RequestHandlerInterface
 {
     /**
      * @var callable|MiddlewareInterface

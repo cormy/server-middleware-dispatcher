@@ -10,7 +10,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Zend\Diactoros\ServerRequest;
 
-class DispatcherTest extends \PHPUnit_Framework_TestCase
+class MiddlewareDispatcherTest extends \PHPUnit_Framework_TestCase
 {
     use \VladaHejda\AssertException;
 
@@ -19,7 +19,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
         $finalHandler = new FinalHandler('Final!');
         $middleware = new CounterMiddleware(0);
 
-        $sut = new Dispatcher($middleware, $finalHandler);
+        $sut = new MiddlewareDispatcher($middleware, $finalHandler);
         $response = $sut(new ServerRequest());
 
         $this->assertInstanceOf(ResponseInterface::class, $response);
@@ -40,7 +40,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
             return $response;
         };
 
-        $sut = new Dispatcher($middleware, $finalHandler);
+        $sut = new MiddlewareDispatcher($middleware, $finalHandler);
         $response = $sut(new ServerRequest());
 
         $this->assertInstanceOf(ResponseInterface::class, $response);
@@ -60,7 +60,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
             }
         };
 
-        $sut = new Dispatcher($middleware, $finalHandler);
+        $sut = new MiddlewareDispatcher($middleware, $finalHandler);
         $response = $sut(new ServerRequest());
 
         $this->assertInstanceOf(ResponseInterface::class, $response);
@@ -79,7 +79,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
             return $response;
         };
 
-        $sut = new Dispatcher($middleware, $finalHandler);
+        $sut = new MiddlewareDispatcher($middleware, $finalHandler);
 
         $this->assertException(function () use ($sut) {
             $sut(new ServerRequest());

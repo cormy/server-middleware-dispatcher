@@ -5,7 +5,7 @@ namespace Cormy;
 
 require __DIR__.'/../vendor/autoload.php';
 
-use Cormy\Server\Dispatcher;
+use Cormy\Server\MiddlewareDispatcher;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -21,7 +21,7 @@ $finalHandler = function (ServerRequestInterface $request):ResponseInterface {
 };
 
 // create a dispatcher
-$dispatcher = new Dispatcher($middleware, $finalHandler);
+$dispatcher = new MiddlewareDispatcher($middleware, $finalHandler);
 
 // dispatch a request
 $response = $dispatcher(new \Zend\Diactoros\ServerRequest());

@@ -1,6 +1,6 @@
-# Cormy Dispatcher [![Build Status](https://travis-ci.org/cormy/dispatcher.svg?branch=master)](https://travis-ci.org/cormy/dispatcher) [![Coverage Status](https://coveralls.io/repos/cormy/dispatcher/badge.svg?branch=master&service=github)](https://coveralls.io/github/cormy/dispatcher?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/cormy/dispatcher/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/cormy/dispatcher/?branch=master)
+# Cormy Server Middleware Dispatcher [![Build Status](https://travis-ci.org/cormy/server-middleware-dispatcher.svg?branch=master)](https://travis-ci.org/cormy/server-middleware-dispatcher) [![Coverage Status](https://coveralls.io/repos/cormy/server-middleware-dispatcher/badge.svg?branch=master&service=github)](https://coveralls.io/github/cormy/server-middleware-dispatcher?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/cormy/server-middleware-dispatcher/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/cormy/server-middleware-dispatcher/?branch=master)
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/54f1099a-3ff0-4328-836d-e80438ae75dc/big.png)](https://insight.sensiolabs.com/projects/54f1099a-3ff0-4328-836d-e80438ae75dc)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/653860df-7903-4711-98b3-c60e349f1e65/big.png)](https://insight.sensiolabs.com/projects/653860df-7903-4711-98b3-c60e349f1e65)
 
 > :nut_and_bolt: Cormy [PSR-7](http://www.php-fig.org/psr/psr-7) server middleware dispatcher
 
@@ -8,14 +8,14 @@
 ## Install
 
 ```
-composer require cormy/dispatcher
+composer require cormy/server-middleware-dispatcher
 ```
 
 
 ## Usage
 
 ```php
-use Cormy\Server\Dispatcher;
+use Cormy\Server\MiddlewareDispatcher;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -31,7 +31,7 @@ $finalHandler = function (ServerRequestInterface $request):ResponseInterface {
 };
 
 // create a dispatcher
-$dispatcher = new Dispatcher($middleware, $finalHandler);
+$dispatcher = new MiddlewareDispatcher($middleware, $finalHandler);
 
 // dispatch a request
 $response = $dispatcher(new \Zend\Diactoros\ServerRequest());
@@ -40,9 +40,9 @@ $response = $dispatcher(new \Zend\Diactoros\ServerRequest());
 
 ## API
 
-### `Cormy\Server\Dispatcher implements Cormy\Server\RequestHandlerInterface`
+### `Cormy\Server\MiddlewareDispatcher implements Cormy\Server\RequestHandlerInterface`
 
-#### `Dispatcher::__construct`
+#### `MiddlewareDispatcher::__construct`
 
 ```php
 /**
